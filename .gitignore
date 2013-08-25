@@ -1,4 +1,4 @@
-app
+/app/
 .ftppass
 .grunt
 .DS_Store
