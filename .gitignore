@@ -1,0 +1,5 @@
+app
+.ftppass
+.grunt
+.DS_Store
+node_modules

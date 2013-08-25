@@ -1,0 +1,40 @@
+
+
+html,
+body {
+	height: 100%;
+	width : 100%;
+    .radial-gradient(50% 50%,circle,@blue, @darkBlue);
+    text-align: center;
+}
+
+#login-view {
+    display: none;
+}
+
+#logged-in-view {
+    display: none;
+}
+
+#quiz-view {
+    display: none;
+}
+
+#loading-view {
+    display: none;
+}
+
+#results-view {
+    display: none;
+}
+
+.radial-gradient (@position, @shape, @color-start, @color-end) {
+  background : -webkit-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -moz-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -ms-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : -o-radial-gradient(@position, @shape, @color-start, @color-end);
+  background : radial-gradient(@shape at @position, @color-start, @color-end);  
+}
+
+@blue : rgba(30,118,199,1);
+@darkBlue : rgba(26,98,164,1);
