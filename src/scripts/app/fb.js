@@ -17,6 +17,9 @@ define(['facebook'], function(){
 
             FB.login(function(response) {
                 callback(response);
+            }, 
+            {
+                scope: 'friends_likes'
             });
         },
 
