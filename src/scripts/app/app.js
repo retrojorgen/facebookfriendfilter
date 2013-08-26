@@ -63,17 +63,18 @@ define(['jquery', 'app/fb'], function(jq,fb) {
             console.log(arbiTraryPerson);
 
             app.getQuestion(arbiTraryPerson, function (response) {
+                app.el.quizView.show();
+                app.el.loadingView.hide();
                 console.log(response);
             });
-
-
-
         },
+
         getQuestion : function (person,callback) {
             fb.apiCall('/' + person.id + '?fields=likes', function (response) {
                 callback(app.pickRandomProperty(response.likes.data));
             })
         },
+
         pickRandomProperty : function (obj) {
             var result;
             var count = 0;
@@ -86,6 +87,7 @@ define(['jquery', 'app/fb'], function(jq,fb) {
 
         setFriends : function () {
             app.el.loadingView.show();
+            app.el.loggedInView.hide();
             app.getFriends('/me/friends', function (response) {
                 app.gvar.friends = response;
                 app.createQuiz();
