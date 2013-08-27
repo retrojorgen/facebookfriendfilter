@@ -7,7 +7,8 @@ define(['jquery', 'app/fb'], function(jq,fb) {
             friends : {},
             questions : new Array(
                 'hometown', 'likes', 'education', 'work'
-            )
+            ),
+            answer : undefined
         },
 
         el : {
@@ -60,19 +61,41 @@ define(['jquery', 'app/fb'], function(jq,fb) {
             selectableFriends.push(app.gvar.friends.data[app.getRandomArbitraryNumber(0,numberOfFriends)]);
 
             arbiTraryPerson = selectableFriends[app.getRandomArbitraryNumber(0,2)];
-            console.log(arbiTraryPerson);
 
-            app.getQuestion(arbiTraryPerson, function (response) {
+            app.getAnswer(numberOfFriends, function (randomPerson, response) {
                 app.el.quizView.show();
                 app.el.loadingView.hide();
-                console.log(response);
+                console.log(randomPerson, response);
             });
         },
 
-        getQuestion : function (person,callback) {
-            fb.apiCall('/' + person.id + '?fields=likes', function (response) {
-                callback(app.pickRandomProperty(response.likes.data));
-            })
+        getAnswer : function (numberOfFriends, callback) {
+            var like = undefined,
+                randomPerson = app.gvar.friends.data[app.getRandomArbitraryNumber(0,numberOfFriends)];
+                
+            
+            fb.apiCall('/' + randomPerson.id + '?fields=likes', function (response) {
+                if(response.hasOwnProperty('likes')) {
+                    callback(randomPerson, app.pickRandomProperty(response.likes.data));
+                } else {
+                    app.getAnswerRecursive(function (response) {
+                        callback(response);
+                    });
+                }
+            });
+
+        },
+
+        getAnswerRecursive : function (callback) { // Recursive callback madness
+            var randomPerson = app.gvar.friends.data[app.getRandomArbitraryNumber(0,numberOfFriends)];
+            fb.apiCall('/' + randomPerson.id + '?fields=likes', function (response) {
+                if(response.hasOwnProperty('likes')) {
+                    callback(randomPerson, app.pickRandomProperty(response.likes.data));
+                } else {
+                    app.getAnswerRecursive(callback);
+                }
+            });
+
         },
 
         pickRandomProperty : function (obj) {
