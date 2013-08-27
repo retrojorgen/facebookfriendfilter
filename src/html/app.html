@@ -12,49 +12,48 @@
     </head>
     <body>
         <div id="fb-root"></div>
+        <div id="content-wrapper">
+            <section id="login-view">
+                <h1>Welcome to the outstanding facebook friend filter.</h1>
+                <h2>Is this your first time here?</h2>
+                <p>Facebook friend filter is a fun little web app experiment,
+                that lets you figure out which facebook friends you actually know,
+                and those that could possibly be hidden or deleted.</p>
+                <p>Through a series of choices we explore your friends likes,
+                birthdays, hometowns, locations and much more. We present you with
+                a statement and you decide which of three possible choices has this
+                in her or his facebook profile.</p>
+                <p class="disclaimer">Disclaimer: No information is stored when you use this application,
+                and no information is published back to facebook. This is for your 
+                personal use only. If you are in doubt you are free to look at the source
+                code at github <a href="https://github.com/retrojorgen/facebookfriendfilter/"
+                target="_blank">here</a></p>
+                <button id="login-button">Login via Facebook</button>
+            </section>
 
-        <section id="login-view">
-            <h1>Welcome to the outstanding facebook friend filter.</h1>
-            <h2>Is this your first time here?</h2>
-            <p>Facebook friend filter is a fun little web app experiment,
-            that lets you figure out which facebook friends you actually know,
-            and those that could possibly be hidden or deleted.</p>
-            <p>Through a series of choices we explore your friends likes,
-            birthdays, hometowns, locations and much more. We present you with
-            a statement and you decide which of three possible choices has this
-            in her or his facebook profile.</p>
-            <p class="disclaimer">Disclaimer: No information is stored when you use this application,
-            and no information is published back to facebook. This is for your 
-            personal use only. If you are in doubt you are free to look at the source
-            code at github <a href="https://github.com/retrojorgen/facebookfriendfilter/"
-            target="_blank">here</a></p>
-            <button id="login-button">Login via Facebook</button>
-        </section>
+            <section id="logged-in-view">
+                <h1>Welcome <span id="logged-in-username"></span>!</h1>
+                <h2>Are you ready for a funtastic quiz?</h2>
+                <p>This quiz might help you figure out which of your facebook friends you actually know. Press the start button to start the quiz.</p>
+                <button id="start-button">Start quiz</button>
+            </section>
 
-        <section id="logged-in-view">
-            <h1>Welcome <span id="logged-in-username"></span>!</h1>
-            <h2>Are you ready for a funtastic quiz?</h2>
-            <p>This quiz might help you figure out which of your facebook friends you actually know. Press the start button to start the quiz.</p>
-            <button id="start-button">Start quiz</button>
-        </section>
+            <section id="loading-view">
+                <div id="spinner">I'm spinning.</div>
+            </section>
 
-        <section id="loading-view">
-            <div id="spinner">I'm spinning.</div>
-        </section>
+            <section id="quiz-view">
+                <h1 id='answer'></h1>
+                <h2 id='question'>Who likes this <span id="category"></span>?</h2>
+                <div id="image-section">
+                    <div id="person-1"><img id="img-1" src="" alt=""><div id="name-1"></div></div>
+                    <div id="person-2"><img id="img-2" src="" alt=""><div id="name-2"></div></div>
+                    <div id="person-3"><img id="img-3" src="" alt=""><div id="name-3"></div></div>
+                </div>
+            </section>
 
-        <section id="quiz-view">
-            <h1>Welcome to the Super awesome Facebook friends quiz extravaganza.</h1>
-            <h2>Is this your first time here?</h2>
-            <p>Facebook friends quiz is a fun little webapp that gives you</p>
-            <div id="image-section">
-                <span id="person-1"></span>
-                <span id="person-2"></span>
-                <span id="person-3"></span>
-            </div>
-        </section>
-
-        <section id="results-view">
-        </section>
-
+            <section id="results-view">
+            </section>
+        </div>
     </body>
 </html>

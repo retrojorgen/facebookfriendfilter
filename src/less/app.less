@@ -1,33 +1,95 @@
+@import url(http://fonts.googleapis.com/css?family=Chela+One|Gilda+Display);
 
+@chelaOne : 'Chela One';
+@gildeDisplay : 'Gilda Display';
 
 html,
 body {
 	height: 100%;
 	width : 100%;
     .radial-gradient(50% 50%,circle,@blue, @darkBlue);
-    text-align: center;
+  text-align: center;
+  margin: 0;
+}
+h1 {
+  font-family: @chelaOne, cursive;
+  font-size: 4em;
+  margin: 0;
+}
+h2 {
+  font-family: @gildeDisplay, serif;
+  font-size: 2.5em;
+  margin: 0;
+}
+p,
+div {
+  font-family: @gildeDisplay, serif;
+  font-size: 1em;
 }
 
-#login-view {
-    display: none;
+button {
+  background-color: lighten(@blue, 20%);
+  color: white;
+  padding: 20px;
+  border: 0;
+  border-radius: 1em;
+  font-family: @gildeDisplay, serif;
+  font-size: 1.5em;
 }
 
-#logged-in-view {
-    display: none;
-}
+#content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
 
-#quiz-view {
-    display: none;
-}
+  #login-view {
+      display: none;
+      p {
+        padding: 0 8em 0 8em;
+        text-align: left;
+      }
 
-#loading-view {
-    display: none;
-}
+  }
 
-#results-view {
-    display: none;
-}
+  #logged-in-view {
+      display: none;
+      
+      p {
+        padding: 0 8em 0 8em;
+        text-align: left;
+      }
+  }
 
+  #quiz-view {
+      display: none;
+      #image-section {
+        div {
+          width: 216px;
+          display: inline-block;
+
+          img {
+            width: 200px;
+            padding: 8px;
+            &:hover {
+              padding: 4px;
+              border: 4px solid @whiteHalfOpacity;
+            }
+          }
+
+          div {
+            text-align: center;
+          }
+        }
+      }
+  }
+
+  #loading-view {
+      display: none;
+  }
+
+  #results-view {
+      display: none;
+  }
+}
 .radial-gradient (@position, @shape, @color-start, @color-end) {
   background : -webkit-radial-gradient(@position, @shape, @color-start, @color-end);
   background : -moz-radial-gradient(@position, @shape, @color-start, @color-end);
@@ -36,5 +98,6 @@ body {
   background : radial-gradient(@shape at @position, @color-start, @color-end);  
 }
 
+@whiteHalfOpacity : rgba(255,255,255,0.5);
 @blue : rgba(30,118,199,1);
-@darkBlue : rgba(26,98,164,1);
+@darkBlue : rgba(10,41,70,1);
