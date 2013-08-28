@@ -82,6 +82,7 @@ module.exports = function(grunt) {
         requirejs: {
             compile: {
                 options: {
+                    optimize: "none",
                     almond: true,
                     wrap: true,
                     name: 'config',
